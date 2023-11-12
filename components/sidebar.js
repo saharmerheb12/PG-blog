@@ -5,20 +5,17 @@ import Link from "next/link";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
 
-export default function Sidebar(props) {
+export default function Sidebar({ props }) {
+  const { categories, related, pathPrefix } = props;
+
   return (
     <div className="mt-5 font-sans">
       <Searchbar />
 
-      {props.related && (
-        <RelatedPosts
-          related={props.related}
-          pathPrefix={props.pathPrefix}
-        />
+      {related && (
+        <RelatedPosts related={related} pathPrefix={pathPrefix} />
       )}
-      {props.categories && (
-        <Categories categories={props.categories} />
-      )}
+      {categories && <Categories categories={categories} />}
     </div>
   );
 }

@@ -45,6 +45,13 @@ export const fetcher = async ([query, params]) => {
   }
 })();
 
+export async function searchAllPosts(query) {
+  if (client) {
+    return (await client.fetch(searchquery, { query })) || [];
+  }
+  return [];
+}
+
 export async function getAllPosts() {
   if (client) {
     return (await client.fetch(postquery)) || [];
