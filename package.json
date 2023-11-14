@@ -17,7 +17,6 @@
     "@heroicons/react": "^2.0.17",
     "@portabletext/react": "^2.0.2",
     "@sanity/code-input": "^4.1.0",
-    "@sanity/document-internationalization": "^2.0.2",
     "@sanity/icons": "^2.2.2",
     "@sanity/image-url": "^1.0.2",
     "@sanity/table": "^1.0.1",
