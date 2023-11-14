@@ -60,8 +60,6 @@ const Backlink = () => {
           fill="#F7FAFC"
         />
       </svg>
-
-      {/* <span> Purchase Pro ↗</span> */}
     </a>
   );
 };
