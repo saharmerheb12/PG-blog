@@ -11,9 +11,10 @@ import AuthorCard from "@/components/blog/authorCard";
 import Sidebar from "@/components/sidebar";
 
 export default function Post({ props }) {
-  const { post, categories } = props;
+  const { post, categories, isArabic } = props;
 
   const slug = post?.slug;
+  const direction = isArabic ? "rtl" : "ltr";
 
   if (!slug) {
     notFound();
@@ -95,7 +96,9 @@ export default function Post({ props }) {
       </div>
       <div className="mx-auto mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1">
-          <div className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
+          <div
+            dir={direction}
+            className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
             {post.body && <PortableText value={post.body} />}
           </div>
         </article>

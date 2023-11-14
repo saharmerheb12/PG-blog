@@ -13,7 +13,8 @@ import {
   catpathquery,
   catquery,
   getAll,
-  searchquery
+  searchquery,
+  allcatquery
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -135,6 +136,13 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
         limit: limit
       })) || []
     );
+  }
+  return [];
+}
+
+export async function getCategoriesMenu() {
+  if (client) {
+    return (await client.fetch(allcatquery)) || [];
   }
   return [];
 }
