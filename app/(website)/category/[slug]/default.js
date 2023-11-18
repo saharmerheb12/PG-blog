@@ -2,10 +2,8 @@ import Link from "next/link";
 import Container from "@/components/container";
 import PostList from "@/components/postlist";
 
-export default function Post({ props }) {
-  const { category, posts } = props;
-
-  if (!category) {
+export default function Post({ categoryTitle, posts }) {
+  if (!categoryTitle) {
     notFound();
   }
   return (
@@ -13,7 +11,7 @@ export default function Post({ props }) {
       {posts && (
         <Container>
           <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-            {category}
+            {categoryTitle}
           </h1>
           <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
             {posts.slice(0, 14).map(post => (

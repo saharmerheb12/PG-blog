@@ -19,12 +19,14 @@ export default async function IndexPage({ params }) {
     category => category.slug.current === params.slug
   );
   const posts = await getPostsByCategory(params.slug);
-  const props = {
-    category: category.title,
-    posts: posts
-  };
+  // const props = {
+  //   category: category.title,
+  //   posts: posts
+  // };
 
-  return <CategoryPage props={props} />;
+  return (
+    <CategoryPage categoryTitle={category.title} posts={posts} />
+  );
 }
 
 // export const revalidate = 60;

@@ -10,11 +10,9 @@ import CategoryLabel from "@/components/blog/category";
 import AuthorCard from "@/components/blog/authorCard";
 import Sidebar from "@/components/sidebar";
 
-export default function Post({ props }) {
-  const { post, categories, isArabic } = props;
-
+export default function Post({ post, categories }) {
   const slug = post?.slug;
-  const direction = isArabic ? "rtl" : "ltr";
+  const direction = post?.isArabic ? "rtl" : "ltr";
 
   if (!slug) {
     notFound();

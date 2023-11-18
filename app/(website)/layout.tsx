@@ -30,7 +30,7 @@ async function sharedMetaData(params) {
       ]
     },
     twitter: {
-      title: settings?.title || "PG Blog",
+      title: `${settings?.title} Blog`,
       card: "summary_large_image"
     },
     robots: {
@@ -47,15 +47,14 @@ export async function generateMetadata({ params }) {
 export default async function Layout({ children, params }) {
   const settings = await getSettings();
   const categories = await getCategoriesMenu();
-  settings.categories = categories;
 
   return (
     <>
-      <Navbar {...settings} />
+      <Navbar categories={categories} props={...settings} />
 
       <div>{children}</div>
 
-      <Footer {...settings} />
+      <Footer categories={categories} props={...settings} />
     </>
   );
 }

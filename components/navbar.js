@@ -11,8 +11,8 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { myLoader } from "@/utils/all";
 import SearchInput from "./ui/search";
 
-export default function NavbarAlt(props) {
-  const categories_menu = props.categories.map(category => ({
+export default function NavbarAlt({ categories, props }) {
+  const categories_menu = categories.map(category => ({
     title: category.title,
     path: "/category/" + category.slug
   }));

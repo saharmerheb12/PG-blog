@@ -27,15 +27,10 @@ export async function generateMetadata({ params }) {
 
 export default async function PostDefault({ params }) {
   const post = await getPostBySlug(params.slug);
+  post.isArabic = isArabic(post.title);
   const categories = await getTopCategories();
 
-  const props = {
-    post: post,
-    categories: categories,
-    isArabic: isArabic(post.title)
-  };
-
-  return <PostPage props={props} />;
+  return <PostPage post={post} categories={categories} />;
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;
