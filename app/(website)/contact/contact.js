@@ -29,8 +29,8 @@ export default function Contact({ settings }) {
   const { submit: onSubmit } = useWeb3Forms({
     access_key: apiKey,
     settings: {
-      from_name: "PG Blog",
-      subject: "New Contact Message from PG Blog"
+      from_name: `${settings?.title} Blog`,
+      subject: `New Contact Message from ${settings?.title} Blog`
     },
     onSuccess: (msg, data) => {
       setIsSuccess(true);
@@ -48,19 +48,25 @@ export default function Contact({ settings }) {
       <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
         Contact
       </h1>
-      <div className="text-center">
-        <p className="text-lg">We are a here to help.</p>
-      </div>
+      {settings?.contactSubTitle &&
+        settings.contactSubTitle.length > 0 && (
+          <div className="text-center">
+            <p className="text-lg">{settings.contactSubTitle}</p>
+          </div>
+        )}
 
       <div className="my-10 grid md:grid-cols-2">
         <div className="my-10">
-          <h2 className="text-2xl font-semibold dark:text-white">
-            Contact Stablo
-          </h2>
-          <p className="mt-5 max-w-sm">
-            Have something to say? We are here to help. Fill up the
-            form or send email or call phone.
-          </p>
+          {settings?.contactIntroTitle &&
+            settings.contactIntroTitle.length > 0 && (
+              <h2 className="text-2xl font-semibold dark:text-white">
+                {settings.contactIntroTitle}
+              </h2>
+            )}
+          {settings?.contactIntro &&
+            settings.contactIntro.length > 0 && (
+              <p className="mt-5 max-w-sm">{settings.contactIntro}</p>
+            )}
 
           <div className="mt-5">
             {settings?.address && settings.address.length > 0 && (

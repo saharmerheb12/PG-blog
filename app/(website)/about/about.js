@@ -9,9 +9,12 @@ export default function About({ authors, settings }) {
       <h1 className="text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
         About
       </h1>
-      <div className="text-center">
-        <p className="text-lg">We are a small passionate team.</p>
-      </div>
+      {settings?.aboutSubTitle &&
+        settings?.aboutSubTitle.length > 0 && (
+          <div className="text-center">
+            <p className="text-lg">{settings?.aboutSubTitle}</p>
+          </div>
+        )}
 
       <div className="mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16">
         {authors.slice(0, 3).map(author => {
@@ -35,23 +38,19 @@ export default function About({ authors, settings }) {
           );
         })}
       </div>
-
-      <div className="prose mx-auto mt-14 text-center dark:prose-invert">
-        <p>
-          We provide real-time connectivity to enable software
-          providers and financial institutions to build integrated
-          products for their small business customers.
-        </p>
-        <p>
-          Our API infrastructure is leveraged by clients ranging from
-          lenders to corporate card providers and business forecasting
-          tools, with use cases including automatic reconciliation,
-          business dashboarding, and loan decisioning.
-        </p>
-        <p>
-          <Link href="/contact">Get in touch</Link>
-        </p>
-      </div>
+      {settings?.aboutBody && settings?.aboutBody.length > 0 && (
+        <div className="prose mx-auto mt-14 text-center dark:prose-invert">
+          <p>{settings?.aboutBody}</p>
+          {settings?.contactLinkCaption &&
+            settings?.contactLinkCaption.length > 0 && (
+              <p>
+                <Link href="/contact">
+                  {settings?.contactLinkCaption}
+                </Link>
+              </p>
+            )}
+        </div>
+      )}
     </Container>
   );
 }

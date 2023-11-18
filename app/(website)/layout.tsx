@@ -11,13 +11,10 @@ async function sharedMetaData(params) {
     // metadataBase: new URL(settings.url),
     title: {
       default:
-        settings?.title ||
-        "Stablo - Blog Template for Next.js & Sanity CMS",
-      template: "%s | Stablo"
+        settings?.title || "Blog Template for Next.js & Sanity CMS",
+      template: "%s | Blog"
     },
-    description:
-      settings?.description ||
-      "Stablo - popular open-source next.js and sanity blog template",
+    description: settings?.description || "",
     keywords: ["Next.js", "Sanity", "Tailwind CSS"],
     authors: [{ name: "Surjith" }],
     canonical: settings?.url,
