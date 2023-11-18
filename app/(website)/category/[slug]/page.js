@@ -1,8 +1,7 @@
 import CategoryPage from "./default";
 import {
   getPostsByCategory,
-  getTopCategories,
-  searchAllPosts
+  getTopCategories
 } from "@/lib/sanity/client";
 
 // export async function generateMetadata({ params }) {

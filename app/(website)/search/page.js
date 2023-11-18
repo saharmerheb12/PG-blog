@@ -1,19 +1,26 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import SearchPage from "./default";
+import { useSearchParams } from "next/navigation";
 import { searchAllPosts } from "@/lib/sanity/client";
 
-// eslint-disable-next-line @next/next/no-async-client-component
-export default async function IndexPage() {
+export default function IndexPage() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q");
-  const posts = await searchAllPosts(query);
-  const props = {
-    query: query,
-    posts: posts
-  };
-  return <SearchPage props={props} />;
+  const promise = searchAllPosts(query);
+  var posts = [];
+  console.log("query:", query);
+
+  promise.then(result => {
+    console.log("Result:", result[0]._id);
+    posts = result;
+    const props = {
+      query: query,
+      posts: posts
+    };
+    console.log("props", props);
+    return <SearchPage props={props} />;
+  });
 }
 
 // export const revalidate = 60;

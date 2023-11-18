@@ -63,10 +63,12 @@ export default function Contact({ settings }) {
           </p>
 
           <div className="mt-5">
-            <div className="text-dark-600 mt-2 flex items-center space-x-2 dark:text-gray-400">
-              <MapPinIcon className="h-4 w-4" />
-              <span>1734 Sanfransico, CA 93063</span>
-            </div>
+            {settings?.address && settings.address.length > 0 && (
+              <div className="text-dark-600 mt-2 flex items-center space-x-2 dark:text-gray-400">
+                <MapPinIcon className="h-4 w-4" />
+                <span>{settings.address}</span>
+              </div>
+            )}
             {settings?.email && (
               <div className="text-dark-600 mt-2 flex items-center space-x-2 dark:text-gray-400">
                 <EnvelopeIcon className="h-4 w-4" />
