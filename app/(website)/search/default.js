@@ -2,9 +2,7 @@ import Link from "next/link";
 import Container from "@/components/container";
 import PostList from "@/components/postlist";
 
-export default function Post({ props }) {
-  const { posts, query } = props;
-  console.log("query", query);
+export default function Post({ query, posts }) {
   return (
     <>
       {posts && (
