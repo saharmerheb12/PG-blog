@@ -1,9 +1,10 @@
+"use client";
 import Container from "@/components/container";
 import ThemeSwitch from "@/components/themeSwitch";
 import Image from "next/image";
 import { myLoader } from "@/utils/all";
 import VercelLogo from "../public/img/vercel.svg";
-
+import Popup from "@/components/popup";
 export default function Footer(props) {
   return (
     <Container className="mt-10 border-t border-gray-100 dark:border-gray-800">
@@ -11,7 +12,6 @@ export default function Footer(props) {
         Copyright © {new Date().getFullYear()} {props?.copyright}. All
         rights reserved.
       </div>
-
       <div className="mt-2 flex items-center justify-between">
         <div className="mt-5">
           <a
@@ -30,6 +30,7 @@ export default function Footer(props) {
         </div>
         <ThemeSwitch />
       </div>
+      <Popup />
     </Container>
   );
 }
