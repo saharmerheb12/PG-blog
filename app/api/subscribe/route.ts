@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
           headers: {
             "Content-Type": "application/json",
             "X-MailerLite-ApiKey": process.env.MAILERLITE_API_KEY
-          },
+          } as HeadersInit,
           body: JSON.stringify({ email, name: "subscriber" })
         }
       );
