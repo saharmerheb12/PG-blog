@@ -13,10 +13,6 @@ export async function POST(req: NextRequest) {
   } else {
     const { email }: SubscriptionRequestBody = await req.json();
     try {
-      console.log(
-        "process.env.MAILERLITE_API_KEY",
-        process.env.MAILERLITE_API_KEY
-      );
       const response = await fetch(
         "https://api.mailerlite.com/api/v2/subscribers",
         {

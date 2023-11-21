@@ -54,7 +54,7 @@ export default async function Layout({ children, params }) {
 
       <div>{children}</div>
 
-      <Footer categories={categories} props={...settings} />
+      <Footer props={...settings} />
     </>
   );
 }

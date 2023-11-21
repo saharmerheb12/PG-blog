@@ -1,7 +1,7 @@
 // components/SubscriptionForm.js
 import { useState } from "react";
 
-const SubscriptionForm = ({ onClose }) => {
+const SubscriptionForm = ({ onClose, alert }) => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = async e => {
@@ -30,15 +30,16 @@ const SubscriptionForm = ({ onClose }) => {
   };
 
   return (
-    // <div className="-transform-x-1/2 absolute left-1/2 top-1/2 flex flex-col items-center justify-center gap-y-8 border-gray-50 px-10 py-8 ">
-    <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-y-8 border-gray-50 bg-white px-10 py-8 opacity-80">
-      <div className="flex w-full items-center justify-between">
-        <span className="text-center text-2xl font-semibold">
-          Subscribe and stay up-to-date!
-        </span>
+    <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-y-8 border-gray-50 bg-white px-10 py-8 shadow-2xl dark:bg-black">
+      <div className="absolute right-0 top-0 flex h-0 w-8 justify-between">
         <button className="font-bold" onClick={onClose}>
           X
         </button>
+      </div>
+      <div className="flex w-full items-center justify-between">
+        <span className="text-center text-2xl font-semibold">
+          {alert}
+        </span>
       </div>
       <form onSubmit={handleSubmit} className="my-10">
         <div className="mb-5">
