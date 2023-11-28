@@ -9,6 +9,7 @@ import { parseISO, format } from "date-fns";
 import CategoryLabel from "@/components/blog/category";
 import AuthorCard from "@/components/blog/authorCard";
 import Sidebar from "@/components/sidebar";
+import SocialShare from "@/components/socialshare";
 
 export default function Post({ post, categories }) {
   const slug = post?.slug;
@@ -98,6 +99,10 @@ export default function Post({ post, categories }) {
             dir={direction}
             className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
             {post.body && <PortableText value={post.body} />}
+            <SocialShare
+              articleTitle={post.title}
+              articleSlug={post.slug}
+            />
           </div>
         </article>
         <aside className="sticky top-0 w-full self-start md:w-96">
