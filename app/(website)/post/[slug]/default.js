@@ -101,7 +101,7 @@ export default function Post({ post, categories }) {
             {post.body && <PortableText value={post.body} />}
             <SocialShare
               articleTitle={post.title}
-              articleSlug={post.slug}
+              articleSlug={slug.current}
             />
           </div>
         </article>
