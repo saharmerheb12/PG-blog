@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/container";
@@ -32,6 +33,31 @@ export default function Post({ post, categories }) {
   };
   return (
     <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:type" content="website" />
+        <meta
+          name="og:title"
+          property="og:title"
+          content={post.title}
+        />
+        <meta
+          name="og:description"
+          property="og:description"
+          content={post.excerpt}
+        />
+        <meta property="og:site_name" content="Site Name" />
+        <meta
+          property="og:url"
+          content={`posts/${post.slug.current}`}
+        />
+        <meta
+          name="og:image"
+          property="og:image"
+          content={post?.mainImage}
+        />
+      </Head>
       <div className="relative z-0 flex min-h-[calc(100vh-30vh)] items-center">
         <div className="absolute -z-10 h-full w-full before:absolute before:z-10 before:h-full before:w-full before:bg-black/30">
           {imageProps && (
@@ -110,8 +136,6 @@ export default function Post({ post, categories }) {
             <div>
               <Sidebar props={sidebarProps} />
             </div>
-            <div></div>
-            <div></div>
           </div>
         </aside>
       </div>
