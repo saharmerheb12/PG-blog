@@ -14,7 +14,8 @@ import {
   catquery,
   getAll,
   searchquery,
-  allcatquery
+  allcatquery,
+  catTitle
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -105,6 +106,13 @@ export async function getAllAuthors() {
 }
 
 // Category
+
+export async function getCategoryTitleBySlug(slug) {
+  if (client) {
+    return (await client.fetch(catTitle, { slug })) || {};
+  }
+  return {};
+}
 
 export async function getAllCategories() {
   if (client) {

@@ -1,7 +1,7 @@
 import CategoryPage from "./default";
 import {
   getPostsByCategory,
-  getTopCategories
+  getCategoryTitleBySlug
 } from "@/lib/sanity/client";
 
 // export async function generateMetadata({ params }) {
@@ -14,15 +14,8 @@ import {
 // }
 
 export default async function IndexPage({ params }) {
-  const categories = await getTopCategories();
-  const category = categories.find(
-    category => category.slug.current === params.slug
-  );
+  const category = await getCategoryTitleBySlug(params.slug);
   const posts = await getPostsByCategory(params.slug);
-  // const props = {
-  //   category: category.title,
-  //   posts: posts
-  // };
 
   return (
     <CategoryPage categoryTitle={category.title} posts={posts} />
