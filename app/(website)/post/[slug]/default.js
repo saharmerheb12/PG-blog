@@ -34,10 +34,10 @@ export default function Post({ post, categories }) {
   return (
     <>
       <Head>
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5437877457883303"
-          crossorigin="anonymous"></script>
+          crossorigin="anonymous"></script> */}
         <title>{post.title}</title>
         <meta name="description" content={post.excerpt} />
         <meta property="og:type" content="website" />
